@@ -12,7 +12,7 @@
 #endif
 
 #define BUF_SIZE 2
-TCHAR szName[] = TEXT("Global\\MyLogLevelAccessor");
+TCHAR szName[] = TEXT("MyLogLevelAccessor");
 
 class MMFLOGLEVELACCESSOR_API  MMFLogLevelAccessor : public ILogLevelAccessor
 {
