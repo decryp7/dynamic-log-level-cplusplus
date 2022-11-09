@@ -10,10 +10,8 @@ using std::endl;
 
 int main()
 {
-	ILogLevelAccessor* logAccessor = nullptr;
-
 	try {
-		logAccessor = new MMFLogLevelAccessor();
+		const std::unique_ptr<ILogLevelAccessor> logAccessor = std::make_unique<MMFLogLevelAccessor>();
 
 		while (true)
 		{
@@ -38,8 +36,6 @@ int main()
 	{
 		cout << ex.what() << endl;
 	}
-
-	delete logAccessor;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

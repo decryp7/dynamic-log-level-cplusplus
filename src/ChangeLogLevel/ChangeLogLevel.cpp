@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 		cout << "Changing log level to " << argv[1] << endl;
 		try 
 		{
-			ILogLevelAccessor* logAccessor = new MMFLogLevelAccessor();
+			const std::unique_ptr<ILogLevelAccessor> logAccessor = std::make_unique<MMFLogLevelAccessor>();
 			logAccessor->SetLogLevel(logLevel);
 		}catch (std::exception &ex)
 		{
