@@ -18,8 +18,8 @@ int main(int argc, char *argv[])
 		return 0;
 	}
 
-    if(isdigit(*argv[1]))
-    {
+	if(isdigit(*argv[1]))
+	{
 	    const int logLevel = std::stoi(argv[1]);
 		cout << "Changing log level to " << argv[1] << endl;
 		try 
@@ -30,10 +30,10 @@ int main(int argc, char *argv[])
 		{
 			cout << ex.what() << endl;
 		}
-    }else
-    {
+	}else
+	{
 		cout << "The argument (" << argv[1] << ") is not valid." << endl;
-    }
+	}
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
