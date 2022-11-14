@@ -52,13 +52,21 @@ MMFLogLevelAccessor::~MMFLogLevelAccessor()
 
 int MMFLogLevelAccessor::GetLogLevel()
 {
-	return _ttoi(pBuf);
+	//Any better way to do this?
+	//Do not read more then buffer size
+	const auto copy = new TCHAR[BUF_SIZE];
+	for (int i=0; i < BUF_SIZE; i++)
+	{
+		copy[i] = pBuf[i];
+	}
+	return _ttoi(copy);
 }
 
 void MMFLogLevelAccessor::SetLogLevel(const int logLevel)
 {
 	std::wstring s = std::to_wstring(logLevel);
 	auto cs = s.c_str();
+	//Do not write more then buffer size
 	CopyMemory((PVOID)pBuf, cs, BUF_SIZE);
 }
 
