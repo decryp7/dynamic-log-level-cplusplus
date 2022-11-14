@@ -15,7 +15,7 @@ int main()
 
 		while (true)
 		{
-			int logLevel = logAccessor->GetLogLevel();
+			const int logLevel = logAccessor->GetLogLevel();
 			cout << "logAccessor logLevel: " << logLevel << endl;
 			switch (logLevel)
 			{
