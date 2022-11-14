@@ -57,11 +57,6 @@ int MMFLogLevelAccessor::GetLogLevel()
 
 void MMFLogLevelAccessor::SetLogLevel(const int logLevel)
 {
-	//if(logLevel > 2)
-	//{
-	//	throw std::exception("Maximum level is 2");
-	//}
-
 	std::wstring s = std::to_wstring(logLevel);
 	auto cs = s.c_str();
 	CopyMemory((PVOID)pBuf, cs, BUF_SIZE);
