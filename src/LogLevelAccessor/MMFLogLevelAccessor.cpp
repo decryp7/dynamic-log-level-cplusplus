@@ -64,8 +64,8 @@ int MMFLogLevelAccessor::GetLogLevel()
 
 void MMFLogLevelAccessor::SetLogLevel(const int logLevel)
 {
-	std::wstring s = std::to_wstring(logLevel);
-	auto cs = s.c_str();
+	const std::wstring s = std::to_wstring(logLevel);
+	const auto cs = s.c_str();
 	//Do not write more then buffer size
 	CopyMemory((PVOID)pBuf, cs, BUF_SIZE);
 }
