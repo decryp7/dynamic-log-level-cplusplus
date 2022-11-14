@@ -11,7 +11,7 @@
 	#define MMFLOGLEVELACCESSOR_API __declspec(dllimport) 
 #endif
 
-#define BUF_SIZE 2
+#define BUF_SIZE 1
 TCHAR szName[] = TEXT("MyLogLevelAccessor");
 
 class MMFLOGLEVELACCESSOR_API  MMFLogLevelAccessor : public ILogLevelAccessor
