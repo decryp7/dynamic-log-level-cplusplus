@@ -12,7 +12,6 @@
 #endif
 
 #define BUF_SIZE 1
-TCHAR szName[] = TEXT("MyLogLevelAccessor");
 
 class MMFLOGLEVELACCESSOR_API  MMFLogLevelAccessor : public ILogLevelAccessor
 {
@@ -32,4 +31,5 @@ public:
 private:
 	HANDLE hMapFile;
 	LPCTSTR pBuf;
+	static constexpr TCHAR szName[] = TEXT("MyLogLevelAccessor");
 };

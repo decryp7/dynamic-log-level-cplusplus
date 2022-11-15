@@ -4,6 +4,7 @@
 #include <iostream>
 #include "ILogLevelAccessor.h"
 #include "MMFLogLevelAccessor.h"
+#include "MMFLogLevelAccessor1.h"
 
 using std::cout;
 using std::endl;
@@ -11,7 +12,7 @@ using std::endl;
 int main()
 {
 	try {
-		const std::unique_ptr<ILogLevelAccessor> logAccessor = std::make_unique<MMFLogLevelAccessor>();
+		const std::unique_ptr<ILogLevelAccessor> logAccessor = std::make_unique<MMFLogLevelAccessor1>();
 
 		while (true)
 		{
