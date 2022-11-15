@@ -38,7 +38,7 @@ MMFLogLevelAccessor::MMFLogLevelAccessor()
 
 MMFLogLevelAccessor::~MMFLogLevelAccessor()
 {
-	std::cout << "destructor is called!" << std::endl;
+	//std::cout << "destructor is called!" << std::endl;
 	if(pBuf != nullptr) 
 	{
 		UnmapViewOfFile(pBuf);
