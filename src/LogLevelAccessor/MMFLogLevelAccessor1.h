@@ -37,7 +37,7 @@ private:
 	std::atomic<bool> stopMonitoring = false;
 	std::thread monitorLogLevelChangeEventThread;
 	LPCTSTR pBuf;
-	int cachedLogLevel;
+	std::atomic<int> cachedLogLevel;
 	static constexpr TCHAR szName[] = TEXT("MyLogLevelAccessor");
 };
 
