@@ -13,7 +13,7 @@
 
 #define BUF_SIZE 1
 
-class MMFLOGLEVELACCESSOR_API  MMFLogLevelAccessor : public ILogLevelAccessor
+class MMFLOGLEVELACCESSOR_API  MMFLogLevelAccessor final : public ILogLevelAccessor
 {
 public:
 	MMFLogLevelAccessor();

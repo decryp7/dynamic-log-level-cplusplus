@@ -15,7 +15,7 @@
 #define MMFLOGLEVELACCESSOR1_API __declspec(dllimport) 
 #endif
 
-class MMFLOGLEVELACCESSOR1_API  MMFLogLevelAccessor1 : public ILogLevelAccessor
+class MMFLOGLEVELACCESSOR1_API  MMFLogLevelAccessor1 final: public ILogLevelAccessor
 {
 public:
 	MMFLogLevelAccessor1();

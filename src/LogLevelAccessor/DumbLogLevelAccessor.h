@@ -7,11 +7,11 @@
 #define DUMBLOGLEVELACCESSOR_API __declspec(dllimport) 
 #endif
 
-class DUMBLOGLEVELACCESSOR_API  DumbLogLevelAccessor : public ILogLevelAccessor
+class DUMBLOGLEVELACCESSOR_API  DumbLogLevelAccessor final : public ILogLevelAccessor
 {
 public:
 	DumbLogLevelAccessor() : logLevel(1){}
-	~DumbLogLevelAccessor() = default;
+	~DumbLogLevelAccessor() override = default;
 
 	//disable copy, move operators
 	DumbLogLevelAccessor(const DumbLogLevelAccessor&) = delete;
