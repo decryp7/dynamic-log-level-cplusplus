@@ -8,14 +8,8 @@
 #include "DummyLogger.h"
 #include "ILogger.h"
 
-static const std::unique_ptr<ILogLevelAccessor> mmfLogLevelAccessor = std::make_unique<MMFLogLevelAccessor>();
-static const std::unique_ptr<ILogLevelAccessor> mmfLogLevelAccessor1 = std::make_unique<MMFLogLevelAccessor1>();
-static const std::unique_ptr<ILogLevelAccessor> dumbLogLevelAccessor = std::make_unique<DumbLogLevelAccessor>();
-static const std::unique_ptr<ILogger> dummyLogger = std::make_unique<DummyLogger>();
-static const std::unique_ptr<ILogger> bufferedLogger = std::make_unique<BufferedLogger>();
-
-
 static void BM_MMFLogLevelAccessor_GetLogLevel(benchmark::State& state) {
+	const std::unique_ptr<ILogLevelAccessor> mmfLogLevelAccessor = std::make_unique<MMFLogLevelAccessor>();
 	for (auto _ : state)
 		mmfLogLevelAccessor->GetLogLevel();
 }
@@ -23,6 +17,7 @@ static void BM_MMFLogLevelAccessor_GetLogLevel(benchmark::State& state) {
 BENCHMARK(BM_MMFLogLevelAccessor_GetLogLevel);
 
 static void BM_MMFLogLevelAccessor1_GetLogLevel(benchmark::State& state) {
+	const std::unique_ptr<ILogLevelAccessor> mmfLogLevelAccessor1 = std::make_unique<MMFLogLevelAccessor1>();
 	for (auto _ : state)
 		mmfLogLevelAccessor1->GetLogLevel();
 }
@@ -30,6 +25,7 @@ static void BM_MMFLogLevelAccessor1_GetLogLevel(benchmark::State& state) {
 BENCHMARK(BM_MMFLogLevelAccessor1_GetLogLevel);
 
 static void BM_DumbLogLevelAccessor_GetLogLevel(benchmark::State& state) {
+	const std::unique_ptr<ILogLevelAccessor> dumbLogLevelAccessor = std::make_unique<DumbLogLevelAccessor>();
 	for (auto _ : state)
 		dumbLogLevelAccessor->GetLogLevel();
 }
@@ -37,15 +33,21 @@ static void BM_DumbLogLevelAccessor_GetLogLevel(benchmark::State& state) {
 BENCHMARK(BM_DumbLogLevelAccessor_GetLogLevel);
 
 static void BM_DummyLogger_WriteInfo(benchmark::State& state) {
-	for (auto _ : state)
-		dummyLogger->WriteInfo("testing");
+	const std::unique_ptr<ILogger> dummyLogger = std::make_unique<DummyLogger>();
+	int counter = 0;
+	for (auto _ : state) {
+		dummyLogger->WriteInfo("testing " + std::to_string(++counter));
+	}
 }
 
 BENCHMARK(BM_DummyLogger_WriteInfo);
 
 static void BM_BufferedLogger_WriteInfo(benchmark::State& state) {
-	for (auto _ : state)
-		bufferedLogger->WriteInfo("testing");
+	const std::unique_ptr<ILogger> bufferedLogger = std::make_unique<BufferedLogger>();
+	int counter = 0;
+	for (auto _ : state) {
+		bufferedLogger->WriteInfo("testing " + std::to_string(++counter));
+	}
 }
 
 BENCHMARK(BM_BufferedLogger_WriteInfo);

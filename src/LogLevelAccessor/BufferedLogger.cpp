@@ -16,6 +16,13 @@ BufferedLogger::~BufferedLogger()
 	stopMonitoring = true;
 	monitorIncomingQueueThread.join();
 
+	//clear remaining logs
+	while (!incoming->empty())
+	{
+		logFile << incoming->front() << std::endl;
+		incoming->pop();
+	}
+
 	delete incoming;
 	delete outgoing;
 
@@ -35,6 +42,7 @@ void BufferedLogger::MonitorIncomingQueue()
 	{
 		if(incoming->size() > 1000)
 		{
+			//std::cout << "Buffer full! " << std::to_string(incoming->size()) << std::endl;
 			lockMutex.lock();
 			const auto old = outgoing;
 			outgoing = incoming;
