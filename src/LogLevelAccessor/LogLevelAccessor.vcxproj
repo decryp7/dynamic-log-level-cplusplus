@@ -155,16 +155,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BufferedLogger.h" />
     <ClInclude Include="DumbLogLevelAccessor.h" />
+    <ClInclude Include="DummyLogger.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="ILogger.h" />
     <ClInclude Include="ILogLevelAccessor.h" />
     <ClInclude Include="MMFLogLevelAccessor.h" />
     <ClInclude Include="MMFLogLevelAccessor1.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BufferedLogger.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="DumbLogLevelAccessor.cpp" />
+    <ClCompile Include="DummyLogger.cpp" />
+    <ClCompile Include="ILogger.cpp" />
     <ClCompile Include="MMFLogLevelAccessor.cpp" />
     <ClCompile Include="MMFLogLevelAccessor1.cpp" />
     <ClCompile Include="pch.cpp">

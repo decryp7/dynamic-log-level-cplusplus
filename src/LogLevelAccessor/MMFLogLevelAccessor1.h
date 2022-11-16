@@ -10,9 +10,9 @@
 #include <thread>
 
 #ifdef LOGLEVELACCESSOR_EXPORTS
-#define MMFLOGLEVELACCESSOR1_API __declspec(dllexport) 
+	#define MMFLOGLEVELACCESSOR1_API __declspec(dllexport) 
 #else
-#define MMFLOGLEVELACCESSOR1_API __declspec(dllimport) 
+	#define MMFLOGLEVELACCESSOR1_API __declspec(dllimport) 
 #endif
 
 class MMFLOGLEVELACCESSOR1_API  MMFLogLevelAccessor1 final: public ILogLevelAccessor
