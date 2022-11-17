@@ -10,6 +10,7 @@
 #include <mutex>
 #include <queue>
 #include <thread>
+#include <sstream> 
 
 #include "ILogger.h"
 
@@ -35,5 +36,7 @@ private:
 	std::atomic<bool> stopMonitoring;
 	std::mutex lockMutex;
 	std::ofstream logFile;
+	std::stringstream outgoingStream;
+	size_t bufferSize;
 };
 
